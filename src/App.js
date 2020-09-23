@@ -1,24 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/js/bootstrap.bundle';
+import 'jquery';
+import '@fortawesome/fontawesome-free/css/all.css';
 
-function App() {
+import './App.css';
+import Header from './components/header/header';
+import Menu from './components/menu/menu';
+import BreadCrumb from './components/BreadCrumb/BreadCrumb';
+
+function App({ children }) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div className="header">
+        <Header />
+      </div>
+      <div className="sidenav">
+        <Menu />
+      </div>
+      <div className="content">
+        <main>
+          <BreadCrumb />
+          {children}
+        </main>
+      </div>
     </div>
   );
 }
